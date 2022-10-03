@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
 
-function indent() {
-  c='s/^/       /'
-  case $(uname) in
-    Darwin) sed -l "$c";;
-    *)      sed -u "$c";;
-  esac
-}
-
-apt-get install -y python3 --reinstall | indent
+for COMMAND in $(cat $BUILD_DIR/Shellfile | grep -v -s -e '^#' | grep -v -s -e "^:repo:"); do
+  echo $COMMAND | bash
+done
