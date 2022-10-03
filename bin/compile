@@ -3,4 +3,5 @@
 
 BUILD_DIR=$1
 
-bash $BUILD_DIR/shell_build.sh
+cd $BUILD_DIR
+bash shell_build.sh
