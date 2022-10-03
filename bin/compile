@@ -3,6 +3,4 @@
 
 BUILD_DIR=$1
 
-for COMMAND in $(cat $BUILD_DIR/shell_build | grep -v -s -e '^#' | grep -v -s -e "^:repo:"); do
-  echo $COMMAND | bash
-done
+bash $BUILD_DIR/shell_build.sh
